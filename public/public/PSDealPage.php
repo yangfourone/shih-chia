@@ -418,11 +418,12 @@ else{
                 <div class="row">
                     <div class="col-xs-12 col-md-12 col-lg-12" align="right">
                         <select id="year">
-                        <option value="2019">2019年</option>
-                        <option value="2018">2018年</option>
-                        <option value="2017">2017年</option>
-                        <option value="2016">2016年</option>
-                        <option value="2015">2015年</option>
+                            <option value="2020">2020年</option>
+                            <option value="2019">2019年</option>
+                            <option value="2018">2018年</option>
+                            <option value="2017">2017年</option>
+                            <option value="2016">2016年</option>
+                            <option value="2015">2015年</option>
                         </select>
                     &nbsp;&nbsp;  <button id="NewPatient">新增交易資料</button>
                     </div>
