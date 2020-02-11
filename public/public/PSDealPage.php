@@ -57,10 +57,10 @@ else{
             initial_date();
 
             jQuery('#myTable').DataTable({
-                "lengthMenu": [
-                    [10],
-                    [10]
-                ],
+                // "lengthMenu": [
+                //     [10],
+                //     [10]
+                // ],
                 "paging": true,
                 "ordering": true,
                 "info": true,
@@ -104,14 +104,22 @@ else{
                 getdealData();
                 modalHide();
             })
+            jQuery("#season").change(function() {
+                getdealData();
+                modalHide();
+            })
         });
 
         function getdealData() {
             jQuery.ajax({
                 type: 'GET',
-                url: '../apiv1/deal/getall/' + jQuery("#year").val(),
+                url: '../apiv1/deal/getall',
                 dataType: 'json',
                 cache: false,
+                data: {
+                    year: jQuery("#year").val(),
+                    season: jQuery('#season').val(),
+                },
                 success: function(result) {
                     LoaddealDataToTable(result);
                     jQuery('#myTable').show();
@@ -343,6 +351,7 @@ else{
         }
 
         function modalHide() {
+            jQuery.noConflict();
             $('#exampleModal').modal('hide');
         }
     </script>
@@ -454,13 +463,20 @@ else{
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 col-lg-12" align="right">
-                        <select id="year">
+                        <select class="mx-2" id="year">
                             <option value="2020">2020年</option>
                             <option value="2019">2019年</option>
                             <option value="2018">2018年</option>
                             <option value="2017">2017年</option>
                             <option value="2016">2016年</option>
                             <option value="2015">2015年</option>
+                        </select>
+                        <select class="mx-2" id="season">
+                            <option value="Q1">第 1 季</option>
+                            <option value="Q2">第 2 季</option>
+                            <option value="Q3">第 3 季</option>
+                            <option value="Q4">第 4 季</option>
+                            <option value="all">整   年</option>
                         </select>
                     &nbsp;&nbsp;  <button class="btn btn-dark" id="NewPatient">新增交易資料</button>
                     </div>

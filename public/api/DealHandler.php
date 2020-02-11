@@ -20,7 +20,7 @@ class DealHandler extends SimpleRest{
 			case 'get':
 				if($this->action == 'getall'){
 					$deal_all = new Deal();
-					$this->set_status_code($this->encodeJson($deal_all->getAll($this->id)));
+					$this->set_status_code($this->encodeJson($deal_all->getAll($this->input)));
 					break;
 				}
 				else if($this->action == 'getbyid'){

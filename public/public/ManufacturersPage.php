@@ -245,6 +245,7 @@ else{
         }
 
         function modalHide() {
+            jQuery.noConflict();
             $('#exampleModal').modal('hide');
         }
     </script>

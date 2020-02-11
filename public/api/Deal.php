@@ -3,13 +3,39 @@
 //response by method
 class Deal{
 	
-	function getAll($year){
+	function getAll($input){
 		//connet db
 		require 'connect.php';
 
+		$year = $input['year'];
+		$season = $input['season'];
+
+		switch ($season) {
+			case 'Q1':
+				$begin = 1;
+				$end = 3;
+				break;
+			case 'Q2':
+				$begin = 4;
+				$end = 6;
+				break;
+			case 'Q3':
+				$begin = 7;
+				$end = 9;
+				break;
+			case 'Q4':
+				$begin = 10;
+				$end = 12;
+				break;
+			default:
+				$begin = 1;
+				$end = 12;
+				break;
+		}
+
 		mysqli_select_db($con,"deal");
-		//SELECT * FROM `daily` WHERE 1 ORDER by date DESC
-		$getAll_sql = "SELECT * FROM deal WHERE year='$year'";
+		$getAll_sql = "SELECT * FROM deal WHERE YEAR(time)='$year' AND MONTH(time) BETWEEN '$begin' AND '$end'";
+//		$getAll_sql = "SELECT * FROM deal WHERE year='$year'";
 		$getAll_result = mysqli_query($con,$getAll_sql);
 
 		$getAll_dataArray = array();
@@ -21,7 +47,6 @@ class Deal{
 			while ($row = mysqli_fetch_array($getAll_result,MYSQLI_ASSOC)) {
 				$getAll_dataArray[] = $row;
 			}
-			//$getAll_dataArray = mysqli_fetch_array($getAll_result,MYSQLI_ASSOC);
  			return $getAll_dataArray;
 		}
 	}
