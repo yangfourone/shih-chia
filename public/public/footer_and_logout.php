@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer style="width: 100%; height: 7vw; background-color: black; display: flex;justify-content: center;align-items: center;bottom: 0;position: absolute;">
+<footer style="width: 100%; height: 100px; background-color: black; display: flex;justify-content: center;align-items: center;bottom: 0;position: absolute;">
     <div style="color: white;">Copyright &copy; 世佳事務用品行 2020</div>
 </footer>
 <!-- Scroll to Top Button-->
