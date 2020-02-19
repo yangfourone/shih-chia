@@ -1,21 +1,20 @@
 # s-super
 .idea
 .DS_Store
+.htaccess
 
-public/.htaccess
+DataTables
+PHPExcel-1.8
+TCPDF-master
+
+api/.DS_Store
+api/connect.php
+
 public/.idea
-public/DataTables
 public/.DS_Store
-public/PHPExcel-1.8
-public/TCPDF-master
-
-public/api/.DS_Store
-public/api/connect.php
-
-public/public/.DS_Store
-public/public/pic
-public/public/css
-public/public/js
-public/public/vendor
-public/public/pug
-public/public/scss
+public/pic
+public/css
+public/js
+public/vendor
+public/pug
+public/scss
